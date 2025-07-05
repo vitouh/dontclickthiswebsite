@@ -1,17 +1,35 @@
-let clickCount = 0;
-
-const content = document.getElementById("content");
+let stage = 0;
+const text = document.getElementById("text");
+const button = document.getElementById("finalButton");
 const scream = document.getElementById("scream");
 
 document.body.addEventListener("click", () => {
-  clickCount++;
+  if (stage === 0) {
+    // Stage 1 -> Stage 2: Black screen, white text
+    document.body.className = "black";
+    text.textContent = "why did you click me? don’t click me again.";
+    stage++;
+  } else if (stage === 1) {
+    // Stage 2 -> Stage 3: White screen, black text + button
+    document.body.className = "white-again";
+    text.textContent = "why did you click me again?! don’t you dare click the button.";
+    button.style.display = "inline-block";
+    stage++;
+  }
+});
 
-  if (clickCount === 1) {
-    document.body.classList.add("dark");
-    content.textContent = "why did you click this? don’t click me again.";
-  } else if (clickCount === 2) {
-    document.body.classList.add("jumpscare");
+// Stage 3 -> Stage 4: Red screen, final warning
+button.addEventListener("click", () => {
+  if (stage === 2) {
+    document.body.className = "red";
+    text.textContent = "do not click me.";
+    stage++;
+  } else if (stage === 3) {
+    // Stage 4 -> Stage 5: Jumpscare
+    document.body.className = "jumpscare";
+    text.textContent = "";
+    button.style.display = "none";
     scream.play();
-    content.textContent = ""; // remove text for scare
+    stage++;
   }
 });
