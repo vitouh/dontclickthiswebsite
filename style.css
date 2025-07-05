@@ -11,7 +11,6 @@ body {
   align-items: center;
   text-align: center;
   transition: all 0.4s ease;
-  cursor: default;
   user-select: none;
 }
 
@@ -23,16 +22,7 @@ body {
 
 #text {
   max-width: 90%;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 2px solid;
-  animation: blink-caret 0.75s step-end infinite;
   cursor: pointer;
-}
-
-@keyframes blink-caret {
-  from, to { border-color: transparent; }
-  50% { border-color: currentColor; }
 }
 
 #dangerButton {
@@ -52,7 +42,7 @@ body {
   transform: scale(1.1);
 }
 
-/* Theme Classes */
+/* Stage background themes */
 body.black {
   background-color: black;
   color: white;
