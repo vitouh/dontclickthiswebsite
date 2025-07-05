@@ -1,4 +1,5 @@
 let clickCount = 0;
+
 const content = document.getElementById("content");
 const scream = document.getElementById("scream");
 
@@ -11,5 +12,6 @@ document.body.addEventListener("click", () => {
   } else if (clickCount === 2) {
     document.body.classList.add("jumpscare");
     scream.play();
+    content.textContent = ""; // remove text for scare
   }
 });
