@@ -3,11 +3,14 @@ let stage = 0;
 const text = document.getElementById("text");
 const button = document.getElementById("dangerButton");
 const scream = document.getElementById("scream");
+const chinaMusic = document.getElementById("chinaMusic");
 const rickroll = document.getElementById("rickroll");
 
-function stopScream() {
+function stopAllAudio() {
   scream.pause();
   scream.currentTime = 0;
+  chinaMusic.pause();
+  chinaMusic.currentTime = 0;
 }
 
 function goToStage(n) {
@@ -18,9 +21,10 @@ function goToStage(n) {
   button.style.width = "";
   button.style.height = "";
   button.style.borderRadius = "";
+  button.textContent = "";
   text.style.pointerEvents = "auto";
   rickroll.style.display = "none";
-  stopScream();
+  stopAllAudio();
 
   switch (n) {
     case 0:
@@ -52,6 +56,7 @@ function goToStage(n) {
     case 6:
       document.body.classList.add("china");
       text.textContent = "不要再点我了";
+      chinaMusic.play();
       break;
     case 7:
       document.body.classList.remove("china");
@@ -70,6 +75,18 @@ function goToStage(n) {
     case 9:
       document.body.classList.add("final-black");
       text.textContent = "";
+      button.style.display = "inline-block";
+      button.textContent = "Click Me";
+      button.style.backgroundColor = "red";
+      button.style.color = "white";
+      button.style.width = "200px";
+      button.style.height = "60px";
+      button.style.fontSize = "1.2rem";
+      button.style.borderRadius = "5px";
+      break;
+    case 10:
+      document.body.classList.add("final-black");
+      text.style.display = "none";
       button.style.display = "none";
       rickroll.style.display = "block";
       rickroll.play();
@@ -93,4 +110,5 @@ button.addEventListener("click", (e) => {
   e.stopPropagation();
   if (stage === 2) goToStage(3);
   else if (stage === 7) goToStage(8);
+  else if (stage === 9) goToStage(10);
 });
