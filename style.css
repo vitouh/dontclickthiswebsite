@@ -3,28 +3,31 @@ body {
   padding: 0;
   background-color: white;
   color: black;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
   font-family: Arial, sans-serif;
   font-size: 2rem;
-  cursor: pointer;
-  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   transition: all 0.4s ease;
+  cursor: default;
+  user-select: none;
 }
 
-#content {
-  text-align: center;
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #text {
   max-width: 90%;
   white-space: nowrap;
   overflow: hidden;
-  border-right: 3px solid;
+  border-right: 2px solid;
   animation: blink-caret 0.75s step-end infinite;
+  cursor: pointer;
 }
 
 @keyframes blink-caret {
@@ -32,23 +35,24 @@ body {
   50% { border-color: currentColor; }
 }
 
-button {
+#dangerButton {
   margin-top: 20px;
-  padding: 10px 25px;
+  padding: 10px 20px;
   font-size: 1rem;
   border: none;
   border-radius: 5px;
-  cursor: pointer;
   background-color: red;
   color: white;
+  cursor: pointer;
+  display: none;
   transition: transform 0.2s;
 }
 
-button:hover {
+#dangerButton:hover {
   transform: scale(1.1);
 }
 
-/* Stage background colors */
+/* Theme Classes */
 body.black {
   background-color: black;
   color: white;
@@ -68,11 +72,9 @@ body.jumpscare {
   background: url("jumpscare.jpg") center center no-repeat;
   background-size: cover;
   color: transparent;
-  cursor: pointer;
 }
 
-body.restart-screen {
+body.restart {
   background-color: white;
   color: black;
-  cursor: pointer;
 }
