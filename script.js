@@ -9,6 +9,7 @@ const rickroll = document.getElementById("rickroll");
 function stopAllAudio() {
   scream.pause();
   scream.currentTime = 0;
+
   chinaMusic.pause();
   chinaMusic.currentTime = 0;
 }
@@ -56,7 +57,7 @@ function goToStage(n) {
     case 6:
       document.body.classList.add("china");
       text.textContent = "不要再点我了";
-      chinaMusic.play();
+      chinaMusic.play(); // ✅ CHINA MUSIC PLAYS HERE
       break;
     case 7:
       document.body.classList.remove("china");
