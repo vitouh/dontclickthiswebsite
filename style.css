@@ -42,7 +42,6 @@ body {
   transform: scale(1.1);
 }
 
-/* Stage background themes */
 body.black {
   background-color: black;
   color: white;
@@ -61,10 +60,16 @@ body.red {
 body.jumpscare {
   background: url("jumpscare.jpg") center center no-repeat;
   background-size: cover;
-  color: transparent;
+  color: black;
 }
 
-body.restart {
-  background-color: white;
-  color: black;
+body.china {
+  background: url("china.jpg") center center no-repeat;
+  background-size: cover;
+  color: white;
+}
+
+body.final-black {
+  background-color: black;
+  color: white;
 }
