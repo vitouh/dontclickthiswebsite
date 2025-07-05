@@ -2,16 +2,33 @@ let stage = 0;
 
 const text = document.getElementById("text");
 const button = document.getElementById("clickButton");
+const restart = document.getElementById("restartButton");
 const scream = document.getElementById("scream");
 
 const stages = [
-  { className: "", message: "don’t click this", showButton: false },
-  { className: "black", message: "why did you click me? don’t click me again.", showButton: false },
-  { className: "white-again", message: "why did you click me again?! don’t you dare click the button.", showButton: true },
-  { className: "red", message: "do not click me.", showButton: true },
+  {
+    message: "don’t click this",
+    className: "",
+    showButton: false
+  },
+  {
+    message: "why did you click me? don’t click me again.",
+    className: "black",
+    showButton: false
+  },
+  {
+    message: "why did you click me again?! don’t you dare click the button.",
+    className: "white-again",
+    showButton: true
+  },
+  {
+    message: "do not click me.",
+    className: "red",
+    showButton: true
+  }
 ];
 
-// Typing animation
+// Typing effect
 function typeMessage(message) {
   let i = 0;
   text.textContent = "";
@@ -22,18 +39,19 @@ function typeMessage(message) {
   }, 40);
 }
 
-// Go to a stage (0–3)
-function goToStage(stageNum) {
-  document.body.className = stages[stageNum].className;
-  typeMessage(stages[stageNum].message);
-  button.style.display = stages[stageNum].showButton ? "inline-block" : "none";
-  stage = stageNum;
+// Change stage
+function goToStage(n) {
+  document.body.className = stages[n].className;
+  typeMessage(stages[n].message);
+  button.style.display = stages[n].showButton ? "inline-block" : "none";
+  restart.style.display = "none";
+  stage = n;
 }
 
-// Start
+// Initial load
 goToStage(0);
 
-// Body click for stage 0–2
+// Click on body for stage 0 → 2
 document.body.addEventListener("click", () => {
   if (stage === 0) {
     goToStage(1);
@@ -42,19 +60,32 @@ document.body.addEventListener("click", () => {
   }
 });
 
-// Button click for stage 2–3, then jumpscare
+// Button click (stages 2 and 3)
 button.addEventListener("click", () => {
   if (stage === 2) {
     goToStage(3);
   } else if (stage === 3) {
+    // Jumpscare!
     document.body.className = "jumpscare";
     text.textContent = "";
     button.style.display = "none";
     scream.play();
 
-    // Restart after 4 seconds
+    // Show "Try Again" after delay
     setTimeout(() => {
-      goToStage(0);
-    }, 4000);
+      text.style.color = "white";
+      text.style.border = "none";
+      text.textContent = "😱 BOO! 😱";
+      restart.style.display = "inline-block";
+    }, 2000);
+
+    stage = 4;
   }
+});
+
+// Restart everything
+restart.addEventListener("click", () => {
+  text.style.color = "";
+  text.style.border = "";
+  goToStage(0);
 });
