@@ -1,9 +1,11 @@
+/* Base styles */
 body {
   margin: 0;
   padding: 0;
   background-color: white;
   color: black;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -11,42 +13,46 @@ body {
   font-size: 2rem;
   cursor: pointer;
   user-select: none;
-  transition: all 0.4s ease;
-  flex-direction: column;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-#content {
+#text {
   text-align: center;
 }
 
 button {
   margin-top: 20px;
-  padding: 10px 20px;
+  padding: 10px 25px;
   font-size: 1rem;
-  cursor: pointer;
   border: none;
   border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s;
 }
 
-/* Stage 2: black screen */
+button:hover {
+  transform: scale(1.1);
+}
+
+/* Dark mode */
 body.black {
   background-color: black;
   color: white;
 }
 
-/* Stage 3: white again, but with button */
+/* Back to white */
 body.white-again {
   background-color: white;
   color: black;
 }
 
-/* Stage 4: red screen */
+/* Red warning screen */
 body.red {
   background-color: red;
   color: white;
 }
 
-/* Stage 5: jumpscare */
+/* Jumpscare screen */
 body.jumpscare {
   background: url("jumpscare.jpg") center center no-repeat;
   background-size: cover;
