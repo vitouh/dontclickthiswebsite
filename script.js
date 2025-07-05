@@ -4,7 +4,7 @@ const text = document.getElementById("text");
 const button = document.getElementById("clickButton");
 const scream = document.getElementById("scream");
 
-// Typing effect function
+// Typing effect
 function typeMessage(message, callback) {
   let i = 0;
   text.textContent = "";
@@ -18,7 +18,7 @@ function typeMessage(message, callback) {
   }, 40);
 }
 
-// Go to a specific stage
+// Stage control
 function goToStage(n) {
   stage = n;
   document.body.className = "";
@@ -27,31 +27,41 @@ function goToStage(n) {
   if (n === 0) {
     document.body.className = "";
     typeMessage("don’t click this");
-  } else if (n === 1) {
+  }
+
+  else if (n === 1) {
     document.body.className = "black";
     typeMessage("why did you click me? don’t click me again.");
-  } else if (n === 2) {
+  }
+
+  else if (n === 2) {
     document.body.className = "white-again";
     typeMessage("why did you click me again?! don’t you dare click the button.", () => {
       button.style.display = "inline-block";
     });
-  } else if (n === 3) {
+  }
+
+  else if (n === 3) {
     document.body.className = "red";
     typeMessage("do not click me.");
-  } else if (n === 4) {
+  }
+
+  else if (n === 4) {
     document.body.className = "jumpscare";
     text.textContent = "";
     scream.play();
-  } else if (n === 5) {
+  }
+
+  else if (n === 5) {
     document.body.className = "restart-screen";
     typeMessage("restart");
   }
 }
 
-// Start at stage 0
+// Start
 goToStage(0);
 
-// Click events
+// Clicks on body (stages 0, 1, 4, 5)
 document.body.addEventListener("click", () => {
   if (stage === 0) {
     goToStage(1);
@@ -64,16 +74,16 @@ document.body.addEventListener("click", () => {
   }
 });
 
-// Button click → stage 2 to 3
+// Click red button (stage 2 → 3)
 button.addEventListener("click", (e) => {
-  e.stopPropagation(); // Prevent body click
+  e.stopPropagation(); // prevent body click
   if (stage === 2) {
     button.style.display = "none";
     goToStage(3);
   }
 });
 
-// Stage 3 → jumpscare (click on text only)
+// Click text (stage 3 → jumpscare)
 text.addEventListener("click", (e) => {
   e.stopPropagation();
   if (stage === 3) {
