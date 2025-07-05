@@ -12,7 +12,7 @@ body {
   font-size: 2rem;
   cursor: pointer;
   user-select: none;
-  transition: all 0.4s ease;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 #text {
@@ -20,14 +20,13 @@ body {
   max-width: 90%;
   white-space: nowrap;
   overflow: hidden;
-  border-right: 3px solid black;
+  border-right: 3px solid;
   animation: blink-caret 0.75s step-end infinite;
 }
 
-/* Caret blink effect */
 @keyframes blink-caret {
   from, to { border-color: transparent; }
-  50% { border-color: black; }
+  50% { border-color: currentColor; }
 }
 
 button {
@@ -37,17 +36,27 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: transform 0.2s;
+}
+
+/* Red creepy button */
+#clickButton {
   background-color: red;
   color: white;
-  display: inline-block;
-  transition: transform 0.2s;
+}
+
+/* Restart button style */
+#restartButton {
+  background-color: black;
+  color: white;
+  border: 2px solid white;
 }
 
 button:hover {
   transform: scale(1.1);
 }
 
-/* State styles */
+/* Stages */
 body.black {
   background-color: black;
   color: white;
@@ -67,4 +76,5 @@ body.jumpscare {
   background: url("jumpscare.jpg") center center no-repeat;
   background-size: cover;
   color: transparent;
+  cursor: default;
 }
