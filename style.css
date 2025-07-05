@@ -48,6 +48,7 @@ button:hover {
   transform: scale(1.1);
 }
 
+/* Stage background colors */
 body.black {
   background-color: black;
   color: white;
@@ -75,4 +76,3 @@ body.restart-screen {
   color: black;
   cursor: pointer;
 }
-
