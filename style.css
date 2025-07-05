@@ -1,23 +1,31 @@
+/* Initial white screen with black text */
 body {
   margin: 0;
+  padding: 0;
   background-color: white;
   color: black;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  font-family: sans-serif;
-  font-size: 2em;
+  font-family: Arial, sans-serif;
+  font-size: 2rem;
   cursor: pointer;
   user-select: none;
-  transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
+#content {
+  text-align: center;
+}
+
+/* Second click: dark screen with white text */
 body.dark {
   background-color: black;
   color: white;
 }
 
+/* Third click: jumpscare */
 body.jumpscare {
   background: url("jumpscare.jpg") center center no-repeat;
   background-size: cover;
