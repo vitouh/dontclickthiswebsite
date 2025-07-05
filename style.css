@@ -73,3 +73,10 @@ body.final-black {
   background-color: black;
   color: white;
 }
+
+#rickroll {
+  margin-top: 20px;
+  width: 640px;
+  height: 360px;
+  display: none;
+}
