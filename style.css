@@ -1,4 +1,3 @@
-/* Initial white screen with black text */
 body {
   margin: 0;
   padding: 0;
@@ -12,20 +11,42 @@ body {
   font-size: 2rem;
   cursor: pointer;
   user-select: none;
-  transition: background-color 0.4s ease, color 0.4s ease;
+  transition: all 0.4s ease;
+  flex-direction: column;
 }
 
 #content {
   text-align: center;
 }
 
-/* Second click: dark screen with white text */
-body.dark {
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+/* Stage 2: black screen */
+body.black {
   background-color: black;
   color: white;
 }
 
-/* Third click: jumpscare */
+/* Stage 3: white again, but with button */
+body.white-again {
+  background-color: white;
+  color: black;
+}
+
+/* Stage 4: red screen */
+body.red {
+  background-color: red;
+  color: white;
+}
+
+/* Stage 5: jumpscare */
 body.jumpscare {
   background: url("jumpscare.jpg") center center no-repeat;
   background-size: cover;
