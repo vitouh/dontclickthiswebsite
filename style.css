@@ -12,11 +12,14 @@ body {
   font-size: 2rem;
   cursor: pointer;
   user-select: none;
-  transition: background-color 0.4s ease, color 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+#content {
+  text-align: center;
 }
 
 #text {
-  text-align: center;
   max-width: 90%;
   white-space: nowrap;
   overflow: hidden;
@@ -36,27 +39,15 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: transform 0.2s;
-}
-
-/* Red creepy button */
-#clickButton {
   background-color: red;
   color: white;
-}
-
-/* Restart button style */
-#restartButton {
-  background-color: black;
-  color: white;
-  border: 2px solid white;
+  transition: transform 0.2s;
 }
 
 button:hover {
   transform: scale(1.1);
 }
 
-/* Stages */
 body.black {
   background-color: black;
   color: white;
@@ -69,12 +60,19 @@ body.white-again {
 
 body.red {
   background-color: red;
-  color: white;
+  color: black;
 }
 
 body.jumpscare {
   background: url("jumpscare.jpg") center center no-repeat;
   background-size: cover;
   color: transparent;
-  cursor: default;
+  cursor: pointer;
 }
+
+body.restart-screen {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+
