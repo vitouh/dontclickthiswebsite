@@ -52,35 +52,27 @@ function goToStage(n) {
   }
 }
 
-// Start at stage 0
+// Start
 goToStage(0);
 
-// Body click handler (only allowed in stages 0, 1, 4, 5)
-document.body.addEventListener("click", () => {
+// Make #text the only clickable target
+text.addEventListener("click", () => {
   if (stage === 0) {
     goToStage(1);
   } else if (stage === 1) {
     goToStage(2);
-  } else if (stage === 4) {
-    goToStage(5);
+  } else if (stage === 3) {
+    goToStage(4);
   } else if (stage === 5) {
     goToStage(0);
   }
 });
 
-// Red button click (only active in stage 2)
+// Red button click (only in stage 2)
 button.addEventListener("click", (e) => {
   e.stopPropagation();
   if (stage === 2) {
     button.style.display = "none";
     goToStage(3);
-  }
-});
-
-// Click text to go from red screen to jumpscare (stage 3 → 4)
-text.addEventListener("click", (e) => {
-  e.stopPropagation();
-  if (stage === 3) {
-    goToStage(4);
   }
 });
