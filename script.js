@@ -3,6 +3,12 @@ let stage = 0;
 const text = document.getElementById("text");
 const button = document.getElementById("dangerButton");
 const scream = document.getElementById("scream");
+const rickroll = document.getElementById("rickroll");
+
+function stopScream() {
+  scream.pause();
+  scream.currentTime = 0;
+}
 
 function goToStage(n) {
   stage = n;
@@ -13,6 +19,8 @@ function goToStage(n) {
   button.style.height = "";
   button.style.borderRadius = "";
   text.style.pointerEvents = "auto";
+  rickroll.style.display = "none";
+  stopScream();
 
   switch (n) {
     case 0:
@@ -43,7 +51,7 @@ function goToStage(n) {
       break;
     case 6:
       document.body.classList.add("china");
-      text.textContent = "不要再点我了"; // Don't click me again (in Chinese)
+      text.textContent = "不要再点我了";
       break;
     case 7:
       document.body.classList.remove("china");
@@ -62,12 +70,9 @@ function goToStage(n) {
     case 9:
       document.body.classList.add("final-black");
       text.textContent = "";
-      button.style.display = "inline-block";
-      button.textContent = "";
-      button.style.backgroundColor = "red";
-      button.style.width = "100px";
-      button.style.height = "100px";
-      button.style.borderRadius = "50%";
+      button.style.display = "none";
+      rickroll.style.display = "block";
+      rickroll.play();
       break;
   }
 }
@@ -88,5 +93,4 @@ button.addEventListener("click", (e) => {
   e.stopPropagation();
   if (stage === 2) goToStage(3);
   else if (stage === 7) goToStage(8);
-  else if (stage === 9) window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank");
 });
