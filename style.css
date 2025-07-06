@@ -10,7 +10,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  transition: all 0.4s ease;
+  transition: all 0.5s ease;
   user-select: none;
 }
 
@@ -18,16 +18,19 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 2;
+  position: relative;
 }
 
 #text {
   max-width: 90%;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 #dangerButton {
   margin-top: 20px;
-  padding: 10px 20px;
+  padding: 12px 24px;
   font-size: 1rem;
   border: none;
   border-radius: 5px;
@@ -69,8 +72,15 @@ body.china {
   color: white;
 }
 
-body.final-black {
-  background-color: black;
+body.final-white {
+  background-color: white;
+  color: black;
+}
+
+body.static {
+  background: url("tv_static.gif") center center no-repeat;
+  background-size: cover;
+  font-family: 'Creepster', cursive;
   color: white;
 }
 
@@ -79,4 +89,9 @@ body.final-black {
   width: 640px;
   height: 360px;
   display: none;
+}
+
+.fade {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
 }
