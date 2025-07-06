@@ -1,5 +1,4 @@
 let stage = 0;
-
 const text = document.getElementById("text");
 const button = document.getElementById("dangerButton");
 const scream = document.getElementById("scream");
@@ -7,97 +6,89 @@ const chinaMusic = document.getElementById("chinaMusic");
 const rickroll = document.getElementById("rickroll");
 
 function stopAllAudio() {
-  scream.pause();
-  scream.currentTime = 0;
-  chinaMusic.pause();
-  chinaMusic.currentTime = 0;
+  scream.pause(); scream.currentTime = 0;
+  chinaMusic.pause(); chinaMusic.currentTime = 0;
 }
 
 function goToStage(n) {
   stage = n;
-  document.body.className = "fade"; // smooth fade
-  button.style.display = "none";
-  text.style.pointerEvents = "auto";
-  rickroll.style.display = "none";
+  document.body.className = "";
   text.style.display = "block";
-  button.textContent = "";
+  button.style.display = "none";
+  rickroll.style.display = "none";
   stopAllAudio();
 
-  setTimeout(() => {
-    document.body.className = ""; // clear classes
-    switch (n) {
-      case 0:
-        document.body.classList.add("white-again");
-        text.textContent = "don’t click this";
-        break;
-      case 1:
-        document.body.classList.add("black");
-        text.textContent = "why did you click me? don’t click me again.";
-        break;
-      case 2:
-        document.body.classList.add("white-again");
-        text.textContent = "why did you click me again?! don’t you dare click the button.";
-        button.textContent = "don’t click me!";
-        button.style.display = "inline-block";
-        break;
-      case 3:
-        document.body.classList.add("red");
-        text.textContent = "do not click me.";
-        break;
-      case 4:
-        document.body.classList.add("jumpscare");
-        text.textContent = "see, now don’t click me again.";
-        scream.play();
-        break;
-      case 5:
-        document.body.classList.add("white-again");
-        text.textContent = "the text will bug if you click me again!";
-        break;
-      case 6:
-        document.body.classList.add("china");
-        text.textContent = "不要再点我了";
-        chinaMusic.play();
-        break;
-      case 7:
-        document.body.classList.add("white-again");
-        text.textContent = "fine, I give up, CLICK ME!";
-        button.textContent = "you can’t click it?";
-        button.style.display = "inline-block";
-        button.style.position = "absolute";
-        button.style.top = "10px";
-        button.style.left = "10px";
-        break;
-      case 8:
-        document.body.classList.add("white-again");
-        text.textContent = "haha, you can’t click the text!";
-        break;
-      case 9:
-        document.body.classList.add("black");
-        text.textContent = "wait... why are you still clicking?";
-        break;
-      case 10:
-        document.body.classList.add("black");
-        text.textContent = "okay, click me again... I dare you.";
-        break;
-      case 11:
-        document.body.classList.add("static");
-        text.textContent = "!!@#%$ ERROR_404_MESSAGE_OVERFLOW";
-        break;
-      case 12:
-        document.body.classList.add("black");
-        text.innerHTML = "System Rebooting...<br>It can't fix itself.<br>It needs your help.<br>There's a video below.";
-        button.textContent = "Play the help video";
-        button.style.display = "inline-block";
-        break;
-      case 13:
-        document.body.classList.add("final-white");
-        text.textContent = "You should've listened. The end.";
-        break;
-    }
-  }, 200); // delay for fade
+  switch (n) {
+    case 0:
+      document.body.classList.add("white-again");
+      text.textContent = "don’t click this";
+      break;
+    case 1:
+      document.body.classList.add("black");
+      text.textContent = "why did you click me? don’t click me again.";
+      break;
+    case 2:
+      document.body.classList.add("white-again");
+      text.textContent = "why did you click me again?! don’t you dare click the button.";
+      button.textContent = "don’t click me!";
+      button.style.display = "inline-block";
+      break;
+    case 3:
+      document.body.classList.add("red");
+      text.textContent = "do not click me.";
+      break;
+    case 4:
+      document.body.classList.add("jumpscare");
+      text.textContent = "see, now don’t click me again.";
+      scream.play();
+      break;
+    case 5:
+      document.body.classList.add("white-again");
+      text.textContent = "the text will bug if you click me again!";
+      break;
+    case 6:
+      document.body.classList.add("china");
+      text.textContent = "不要再点我了";
+      chinaMusic.play();
+      break;
+    case 7:
+      document.body.classList.add("white-again");
+      text.textContent = "fine, I give up, CLICK ME!";
+      button.textContent = "you can’t click it?";
+      button.style.display = "inline-block";
+      button.style.position = "absolute";
+      button.style.top = "10px";
+      button.style.left = "10px";
+      break;
+    case 8:
+      document.body.classList.add("white-again");
+      text.textContent = "haha, you can’t click the text!";
+      break;
+    case 9:
+      document.body.classList.add("black");
+      text.textContent = "wait... why are you still clicking?";
+      break;
+    case 10:
+      document.body.classList.add("black");
+      text.textContent = "okay, click me again... I dare you.";
+      break;
+    case 11:
+      document.body.classList.add("static");
+      text.textContent = "!!@#%$ ERROR_404_MESSAGE_OVERFLOW";
+      break;
+    case 12:
+      document.body.classList.add("black");
+      text.innerHTML = "System Rebooting...<br>It can't fix itself.<br>It needs your help.<br>There's a video below.";
+      button.textContent = "Play the help video";
+      button.style.display = "inline-block";
+      break;
+    case 13:
+      document.body.classList.add("final-white");
+      text.textContent = "You should've listened. The end.";
+      break;
+  }
 }
 
-// Start at Stage 0
 goToStage(0);
 
 text.addEventListener("click", () => {
@@ -123,6 +114,6 @@ button.addEventListener("click", (e) => {
     button.style.display = "none";
     rickroll.style.display = "block";
     rickroll.play();
-    setTimeout(() => goToStage(13), 10000); // auto-move to end after 10 sec
+    setTimeout(() => goToStage(13), 10000);
   }
 });
