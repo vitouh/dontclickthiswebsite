@@ -82,10 +82,6 @@ function goToStage(n) {
       button.textContent = "Play the help video";
       button.style.display = "inline-block";
       break;
-    case 13:
-      document.body.classList.add("final-white");
-      text.textContent = "You should've listened. The end.";
-      break;
   }
 }
 
@@ -102,7 +98,6 @@ text.addEventListener("click", () => {
   else if (stage === 9) goToStage(10);
   else if (stage === 10) goToStage(11);
   else if (stage === 11) goToStage(12);
-  else if (stage === 13) goToStage(0);
 });
 
 button.addEventListener("click", (e) => {
@@ -114,6 +109,6 @@ button.addEventListener("click", (e) => {
     button.style.display = "none";
     rickroll.style.display = "block";
     rickroll.play();
-    setTimeout(() => goToStage(13), 10000);
+    setTimeout(() => goToStage(0), 10000); // Restart after 10 seconds
   }
 });
